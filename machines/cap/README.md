@@ -32,9 +32,9 @@ fe1c24c2ac5e9717f882ef7f11820e5
 Agora, para conseguir a flag de root, presente no diretório /root, precisamo escalonar previlégios. De cara, é poivel perceber que a maquina possui o python3 intalado. E é posível usá-lo para conseguir root, ja que ele está com o cap_setuid e o cap_net_bind_service ativados.
 
 Portanto, uando os comandos python a seguir, é possivel conseguir uma shell com root:
->> import os
->> os.setuid(0)
->> os.system("/bin/bash")
+> import os
+> os.setuid(0)
+> os.system("/bin/bash")
 
 ![shell](IMG5.png)
 
