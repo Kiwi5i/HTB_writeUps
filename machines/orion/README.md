@@ -1,6 +1,6 @@
 # Orion
 
-A principio, me era disponibilizado apenas um IP (10.129.xxx.xxx).
+A principio, me era disponibilizado apenas um IP (10.129.41.117).
 
 Fazendo um nmap, percebemos que existem apenas duas portas abertas: 22 para ssh e 80 para http.
 
