@@ -52,4 +52,3 @@ Utilizando um exploit público para essa CVE (https://github.com/AzureADTrent/CV
 
 ![exploit](img/IMG4.png)
 ![final](img/IMG5.png)
-
